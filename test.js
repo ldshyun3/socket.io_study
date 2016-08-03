@@ -4,6 +4,30 @@ var shortId 		= require('shortid');
 
 var clients			= [];
 
+var cluster = require('cluster');   
+var os      = require('os');
+
+var numCPUs = os.cpus().length;
+
+console.log("cluster.isMaster: " + cluster.isMaster);
+console.log("numCPUs: " + numCPUs);
+
+if (cluster.isMaster) {  
+    
+  // Master:
+  // Let's fork as many workers as you have CPU cores
+
+  for (var i = 0; i < numCPUs; ++i) {
+      console.log("i: " + i + " , cluster.fork(); ");
+        cluster.fork();
+  }
+} else {
+  // Worker:
+  // Let's spawn a HTTP server
+  // (Workers can share any TCP connection.
+  //  In this case its a HTTP server
+}
+
 
 io.on('connection', function (socket) {
     console.log("connection...");
@@ -23,19 +47,6 @@ io.on('connection', function (socket) {
         var dataJson = JSON.stringify(data);
 
         console.log(dataJson.toString());
-        /*
-        console.log("data.version: " + data.version);
-        console.log("data.Category : " + data.Category);
-        console.log("data.Crops: " + data.Crops);
-
-        for (var key in data.Crops) {
-            console.log('key:' + key + ' value:' + data.Crops[key]);
-            // Output
-            // key:key value:value
-            // key:anotherKey value:anotherValue
-        }
-        */
-        
 
     });
 
