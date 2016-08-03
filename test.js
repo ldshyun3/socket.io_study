@@ -18,7 +18,7 @@ if (cluster.isMaster) {
   // Let's fork as many workers as you have CPU cores
 
   for (var i = 0; i < numCPUs; ++i) {
-      console.log("i: " + i + " , cluster.fork(); ");
+      //console.log("i: " + i + " , cluster.fork(); ");
         cluster.fork();
   }
 } else {
