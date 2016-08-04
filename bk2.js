@@ -3,7 +3,7 @@ var io 				= require('socket.io')(3000);
 var shortId 		= require('shortid');
 
 var clients			= [];
-/*
+
 var cluster = require('cluster');   
 var os      = require('os');
 
@@ -27,7 +27,7 @@ if (cluster.isMaster) {
   // (Workers can share any TCP connection.
   //  In this case its a HTTP server
 }
-*/
+
 
 io.on('connection', function (socket) {
     console.log("connection...");
