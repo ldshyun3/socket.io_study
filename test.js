@@ -46,7 +46,7 @@ io.on('connection', function (socket) {
         console.log("close...");
     });
     
-    socket.on('send', function (data) {
+    socket.on('send', function (data,fn) {
         //
         //address = socket.handshake.address
 
@@ -61,11 +61,14 @@ io.on('connection', function (socket) {
             Server:"EC1",
             
         }
-
+        /*
         clients.push(currentUser);
         socket.emit('fc_emit',currentUser );
         socket.broadcast.emit('fc_broadcast_emit',currentUser);
-
+        */
+        
+        fn(true);
+        
     });
 
 
