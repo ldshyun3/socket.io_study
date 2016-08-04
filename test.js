@@ -28,8 +28,12 @@ if (cluster.isMaster) {
   //  In this case its a HTTP server
 }
 */
+var address ;
 
 io.on('connection', function (socket) {
+    
+    address = socket.handshake.address;
+    
     console.log("connection...");
     
     var currentUser;
@@ -46,7 +50,7 @@ io.on('connection', function (socket) {
 
         var dataJson = JSON.stringify(data);
 
-        console.log(dataJson.toString());
+        console.log(dataJson.toString() + "   |   " + "from ' + address.address + ' : ' + address.port");
 
     });
 
