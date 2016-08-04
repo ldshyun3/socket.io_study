@@ -52,7 +52,8 @@ io.on('connection', function (socket) {
 
         var dataJson = JSON.stringify(data);
 
-        console.log(dataJson.toString() + "   |   from= " + data.address + " : " + data.port);
+        console.log(dataJson.toString() + "  |  Server: EC1");
+        //console.log(dataJson.toString() + "   |   from= " + data.address + " : " + data.port);
 
     });
 
