@@ -32,7 +32,7 @@ var address ;
 
 io.on('connection', function (socket) {
     
-    address = socket.handshake.address;
+    
     
     console.log("connection...");
     
@@ -48,9 +48,11 @@ io.on('connection', function (socket) {
     
     socket.on('send', function (data) {
 
+        //address = socket.handshake.address
+
         var dataJson = JSON.stringify(data);
 
-        console.log(dataJson.toString() + "   |   from= " + address.address + " : " + address.port);
+        console.log(dataJson.toString() + "   |   from= " + data.address + " : " + data.port);
 
     });
 
