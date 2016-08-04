@@ -50,7 +50,7 @@ io.on('connection', function (socket) {
 
         var dataJson = JSON.stringify(data);
 
-        console.log(dataJson.toString() + "   |   " + "from ' + address.address + ' : ' + address.port");
+        console.log(dataJson.toString() + "   |   from= " + address.address + " : " + address.port);
 
     });
 
