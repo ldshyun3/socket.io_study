@@ -56,8 +56,8 @@ io.on('connection', function (socket) {
         //console.log(dataJson.toString() + "   |   from= " + data.address + " : " + data.port);
 
         var currentUser = {
-            adress:data.Client,
-            id:shortId.generate(),
+            //adress:data.Client,
+            //id:shortId.generate(),
             Server:"EC1",
             
         }
