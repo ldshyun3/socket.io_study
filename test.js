@@ -55,6 +55,17 @@ io.on('connection', function (socket) {
         console.log(dataJson.toString() + "  |  Server: EC1");
         //console.log(dataJson.toString() + "   |   from= " + data.address + " : " + data.port);
 
+        var currentUser = {
+            adress:data.Client,
+            id:shortId.generate(),
+            Server:"EC1",
+            
+        }
+
+        clients.push(currentUser);
+        socket.emit('fc_emit',currentUser );
+        socket.broadcast.emit('fc_broadcast_emit',currentUser);
+
     });
 
 
