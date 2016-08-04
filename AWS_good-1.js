@@ -52,7 +52,7 @@ io.on('connection', function (socket) {
         var dataJson = JSON.stringify(data);
 
         console.log(dataJson.toString());
-        console.log("from ' + address.address + ' : ' + address.port);
+        console.log("from ' + address.address + ' : ' + address.port");
 
     });
 
