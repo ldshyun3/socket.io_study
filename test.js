@@ -30,7 +30,7 @@ if (cluster.isMaster) {
 */
 var address ;
 
-var host = __dirname.split(",")[2];
+
 
 io.on('connection', function (socket) {
     
@@ -39,7 +39,7 @@ io.on('connection', function (socket) {
     //console.log("Server: EC1 | connection | clientIp: " + clientIp);
     //console.log(socket.manager.server.hostname);
     
-    
+    var host = __dirname.split("/")[2];
     
     console.log(host);
     var currentUser;
