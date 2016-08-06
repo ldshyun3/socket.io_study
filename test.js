@@ -30,13 +30,18 @@ if (cluster.isMaster) {
 */
 var address ;
 
+var host = __dirname.split(",")[2];
+
 io.on('connection', function (socket) {
     
     var clientIp = socket.request.connection.remoteAddress;
     
-    console.log("Server: EC1 | connection | clientIp: " + clientIp);
+    //console.log("Server: EC1 | connection | clientIp: " + clientIp);
     //console.log(socket.manager.server.hostname);
-    console.log(__dirname);
+    
+    
+    
+    console.log(host);
     var currentUser;
 
     socket.on('disconnect', function () {
