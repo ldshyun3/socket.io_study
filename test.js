@@ -34,16 +34,16 @@ io.on('connection', function (socket) {
     
     
     
-    console.log("connection...");
+    console.log("Server: EC1 | connection | clientIp: " + clientIp);
     
     var currentUser;
 
     socket.on('disconnect', function () {
-        console.log("disconnect...");
+        console.log("Server: EC1 | disconnect | clientIp: " + clientIp);
     });
 
     socket.on('close', function () {
-        console.log("close...");
+        console.log("Server: EC1 | close | clientIp: " + clientIp);
     });
     
     socket.on('send', function (data,fn) {
@@ -52,19 +52,20 @@ io.on('connection', function (socket) {
 
         var dataJson = JSON.stringify(data);
 
-        var socketId = socket.id;
+        // http://stackoverflow.com/questions/6458083/get-the-clients-ip-address-in-socket-io
+        //var socketId = socket.id;
         var clientIp = socket.request.connection.remoteAddress;
 
-        console.log(dataJson.toString() + "  |  Server: EC1 | socketId: " + socketId + " , clientIp: " + clientIp);
+        console.log("Server: EC1 | data: " + dataJson.toString() + "  , clientIp: " + clientIp);
         //console.log(dataJson.toString() + "   |   from= " + data.address + " : " + data.port);
-
+        /*
         var currentUser = {
             //adress:data.Client,
             //id:shortId.generate(),
             Server:"EC`1",
             
         }
-        /*
+        
         clients.push(currentUser);
         socket.emit('fc_emit',currentUser );
         socket.broadcast.emit('fc_broadcast_emit',currentUser);
