@@ -39,17 +39,18 @@ io.on('connection', function (socket) {
     //console.log("Server: EC1 | connection | clientIp: " + clientIp);
     //console.log(socket.manager.server.hostname);
     
-    var host = __dirname.split("/")[2];
+    var host = __dirname.split("/")[3];
     
-    console.log(host);
+    console.log("Server: " + host + " | connection | clientIp: " + clientIp);
+    //console.log(host);
     var currentUser;
 
     socket.on('disconnect', function () {
-        console.log("Server: EC1 | disconnect | clientIp: " + clientIp);
+        console.log("Server: " + host + " | disconnect | clientIp: " + clientIp);
     });
 
     socket.on('close', function () {
-        console.log("Server: EC1 | close | clientIp: " + clientIp);
+        console.log("Server: " + host + " | close | clientIp: " + clientIp);
     });
     
     socket.on('send', function (data,fn) {
@@ -62,7 +63,7 @@ io.on('connection', function (socket) {
         //var socketId = socket.id;
         
 
-        console.log("Server: EC1 | data: " + dataJson.toString() + "  , clientIp: " + clientIp);
+        console.log("Server: " + host + " | data: " + dataJson.toString() + "  , clientIp: " + clientIp);
         //console.log(dataJson.toString() + "   |   from= " + data.address + " : " + data.port);
         /*
         var currentUser = {
