@@ -32,10 +32,10 @@ var address ;
 
 io.on('connection', function (socket) {
     
-    
+    var clientIp = socket.request.connection.remoteAddress;
     
     console.log("Server: EC1 | connection | clientIp: " + clientIp);
-    
+    console.log(socket.manager.server.hostname)
     var currentUser;
 
     socket.on('disconnect', function () {
@@ -54,7 +54,7 @@ io.on('connection', function (socket) {
 
         // http://stackoverflow.com/questions/6458083/get-the-clients-ip-address-in-socket-io
         //var socketId = socket.id;
-        var clientIp = socket.request.connection.remoteAddress;
+        
 
         console.log("Server: EC1 | data: " + dataJson.toString() + "  , clientIp: " + clientIp);
         //console.log(dataJson.toString() + "   |   from= " + data.address + " : " + data.port);
