@@ -35,7 +35,8 @@ io.on('connection', function (socket) {
     var clientIp = socket.request.connection.remoteAddress;
     
     console.log("Server: EC1 | connection | clientIp: " + clientIp);
-    console.log(socket.manager.server.hostname)
+    //console.log(socket.manager.server.hostname);
+    console.log(__dirname);
     var currentUser;
 
     socket.on('disconnect', function () {
