@@ -52,13 +52,16 @@ io.on('connection', function (socket) {
 
         var dataJson = JSON.stringify(data);
 
-        console.log(dataJson.toString() + "  |  Server: EC1");
+        var socketId = socket.id;
+        var clientIp = socket.request.connection.remoteAddress;
+
+        console.log(dataJson.toString() + "  |  Server: EC1 | socketId: " + socketId + " , clientIp: " + clientIp);
         //console.log(dataJson.toString() + "   |   from= " + data.address + " : " + data.port);
 
         var currentUser = {
             //adress:data.Client,
             //id:shortId.generate(),
-            Server:"EC1",
+            Server:"EC`1",
             
         }
         /*
@@ -67,7 +70,7 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('fc_broadcast_emit',currentUser);
         */
         
-        fn(true);
+        fn(true); //<-- 클라이언트의 emit의 콜백이 정의되있으면 send후 응답콜백으로 해줌.
         
     });
 

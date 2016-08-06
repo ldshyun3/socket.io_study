@@ -50,6 +50,11 @@ io.on('connection', function (socket) {
 
     });
 
+    /* 응답용
+    socket.on('send', function (data,fn) {
+        fn(true); //<-- 클라이언트의 emit의 콜백이 정의되있으면 send후 응답콜백으로 해줌.
+    });
+    */
 
     socket.on('OnApplicationQuit', function (){
         console.log("OnApplicationQuit...");
